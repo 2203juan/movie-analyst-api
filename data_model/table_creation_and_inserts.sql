@@ -1,3 +1,6 @@
+mysql < ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+mysql < flush privileges;
+
 CREATE DATABASE movie_db;
 
 CREATE TABLE movie_db.publication (
