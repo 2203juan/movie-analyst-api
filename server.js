@@ -3,10 +3,10 @@ var express = require('express');
 
 var app = express();
 
-const config = require("../config");
+const config = require("./config");
 
 // Requiring db script
-const db = require("./database")
+const db = require("./database");
 
 //Testing endpoint
 app.get('/', function(req, res){
