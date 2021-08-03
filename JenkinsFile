@@ -1,7 +1,7 @@
 node {
     checkout scm
 
-    docker.withRegistry('https://registry.hub.docker.com:', 'dockerHub') {
+    docker.withRegistry('', 'dockerHub') {
 
         def customImage = docker.build("juan2203/movie-api:${env.BUILD_ID}")
 
