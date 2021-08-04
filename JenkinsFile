@@ -23,7 +23,7 @@ pipeline {
                 sh "docker run -p 3000:3000 -e MYSQL_HOST=${env.MYSQL_HOST} \
                     -e MYSQL_USER=${env.MYSQL_USER} \
                     -e MYSQL_PASS=${MYSQL_PASS} \
-                    -e MYSQL_DB=${MYSQL_DB} ${env.ARTIFACT_ID}"
+                    -e MYSQL_DB=${MYSQL_DB} ${env.ARTIFACT_ID} npm test"
             }
         }
 
