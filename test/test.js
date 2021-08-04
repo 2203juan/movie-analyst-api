@@ -22,6 +22,35 @@ describe('API', () => {
               done();
             });
       });
+
+      it('Movies Page is Working', (done) => {
+        chai.request(server)
+            .get('/movies')
+            .end((err, res) => {
+                res.should.have.status(200);
+              done();
+            });
+      });
+
+      it('Reviewers Page is Working', (done) => {
+        chai.request(server)
+            .get('/reviewers')
+            .end((err, res) => {
+                res.should.have.status(200);
+              done();
+            });
+      });
+
+      it('Publications Page is Working', (done) => {
+        chai.request(server)
+            .get('/publications')
+            .end((err, res) => {
+                res.should.have.status(200);
+              done();
+            });
+      });
+
+
   });
     
 });
