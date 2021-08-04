@@ -1,16 +1,17 @@
 pipeline {
     agent any
 
+    /*
     options {
         timeout(time: 3, unit: 'MINUTES')
-    }
+    }*/
 
     environment {
         ARTIFACT_ID = "juan2203/movie-api:${env.BUILD_ID}"
     }
 
     stages {
-        stage("Build"){
+        stage("Build Docker Image"){
             steps{
                 script {
                     def customImage = docker.build("${env.ARTIFACT_ID}")
@@ -18,16 +19,16 @@ pipeline {
             }
         }
 
-        stage('Run tests') {
+        stage('Run Test Home Page') {
             steps {
                 sh "docker run -p 3000:3000 -e MYSQL_HOST=${env.MYSQL_HOST} \
                     -e MYSQL_USER=${env.MYSQL_USER} \
                     -e MYSQL_PASS=${MYSQL_PASS} \
-                    -e MYSQL_DB=${MYSQL_DB} juan2203/movie-api:${env.BUILD_ID}"
+                    -e MYSQL_DB=${MYSQL_DB} ${env.ARTIFACT_ID}"
             }
         }
 
-        stage("Publish"){
+        stage("Publish Docker Image"){
             steps {
                 script {
                     docker.withRegistry("", "dockerHub") {
