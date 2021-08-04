@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-        stage('Run Test Home Page') {
+        stage('Run Tests') {
             steps {
                 sh "docker run -p 3000:3000 -e MYSQL_HOST=${env.MYSQL_HOST} \
                     -e MYSQL_USER=${env.MYSQL_USER} \
