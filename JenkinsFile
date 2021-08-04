@@ -27,7 +27,7 @@ pipeline {
             }
         }
 
-        stage("Publish Docker Image in DockerHub"){
+        stage("Publish Docker Image"){
             steps {
                 script {
                     docker.withRegistry("", "dockerHub") {
