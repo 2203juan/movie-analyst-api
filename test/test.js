@@ -14,7 +14,7 @@ describe('API', () => {
   * Test the /GET route
   */
   describe('/GET home', () => {
-      it('it should GET any reply', (done) => {
+      it('Home Page is Working', (done) => {
         chai.request(server)
             .get('/')
             .end((err, res) => {
@@ -23,5 +23,5 @@ describe('API', () => {
             });
       });
   });
-
+    
 });
