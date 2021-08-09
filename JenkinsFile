@@ -14,6 +14,7 @@ pipeline {
             steps{
                 script {
                     customImage = docker.build("${env.ARTIFACT_ID}")
+                    latestImage = docker.build("juan2203/movie-api:latest")
                 }
             }
         }
@@ -32,6 +33,7 @@ pipeline {
                 script {
                     docker.withRegistry("", "dockerHub") {
                         customImage.push()
+                        latestImage.push()
                     }
                 }
             }   
