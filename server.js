@@ -70,7 +70,7 @@ app.get('/pending', function(req, res){
 
 // Launch our API Server and have it listen on port 3000.
 app.listen(config.api.port, () => {
-  console.log("Server listening through port: "+ config.api.port);
+  console.log("Server is listening through port: "+ config.api.port);
 });
 
 module.exports = app;
